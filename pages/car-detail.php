@@ -9,8 +9,49 @@
 //} else {
 //    echo "Geen auto opgegeven.";
 //}
+require_once "database/connection.php";
+$id = $_GET["id"];
 
+// $username = "root";
+// $password = "";
 
+try {
+    // $conn = new PDO("mysql:host=localhost;dbname=rydr", $username, $password);
+    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "SELECT id, price, tank_volume, brand, build_year, color, mileage, steering, people_capacity, type_car, cylinder FROM cars WHERE id = :idph";
+
+    $query = $conn->prepare($sql);
+    $query->execute([
+        "idph" => $id
+    ]);
+    $result = $query->fetchAll();
+    $car = $result[0];
+
+    // foreach($result as $row){
+    //     echo "id: " . $row["id"] .
+    //              " - price: " . $row["price"] .
+    //              " - tank_volume: " . $row["tank_volume"] .
+    //              " - brand: " . $row["brand"] .
+    //              " - build_year: " . $row["build_year"] .
+    //              " - color: " . $row["color"] .
+    //              " - mileage: " . $row["mileage"] .
+    //              " - steering: " . $row["steering"] .
+    //              " - people_capacity: " . $row["people_capacity"] .
+    //              " - type_car: " . $row["type_car"] .
+    //              " - cylinder: " . $row["cylinder"] .
+                 
+                 
+                 
+    //              "<br>";
+    //     }
+    
+
+    $conn = null;
+
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
 
 ?>
 <main class="car-detail">
@@ -24,7 +65,7 @@
             </div>
         </div>
         <div class="row white-background">
-            <h2>Nissan GT-R</h2>
+            <h2><?= $car['brand'] ?></h2>
             <div class="rating">
                 <span class="stars stars-4"></span>
                 <span>440+ reviewers</span>

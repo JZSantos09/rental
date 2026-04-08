@@ -1,7 +1,8 @@
 <?php require "includes/header.php" ?>
+<?php require "connection.php" ?>
 <main>
     <form action="/login-handler" class="account-form" method="post">
-        <h2>Log in</h2>
+        <h2>Log in</h2n
         <?php if (isset($_SESSION['success'])) { ?>
             <div class="succes-message"><?= $_SESSION['success'] ?></div>
         <?php } ?>

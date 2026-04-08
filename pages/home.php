@@ -23,6 +23,8 @@
     <h2 class="section-title">Populaire auto's</h2>
     <div class="cars">
         <?php for ($i = 0; $i <= 3; $i++) : ?>
+
+            
             <div class="car-details">
                 <div class="car-brand">
                     <h3>Koenigegg</h3>
@@ -67,7 +69,7 @@
         <?php endfor; ?>
     </div>
     <div class="show-more">
-        <a class="button-primary" href="#">Toon alle</a>
+        <a class="button-primary" href="http://localhost/ons-aanbod">Toon alle</a>
     </div>
     </main>
 
