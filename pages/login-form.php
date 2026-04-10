@@ -1,5 +1,5 @@
 <?php require "includes/header.php" ?>
-<?php require "connection.php" ?>
+<?php require_once "database/connection.php" ?>
 <main>
     <form action="/login-handler" class="account-form" method="post">
         <h2>Log in</h2n
@@ -11,7 +11,8 @@
         <label for="password">Uw wachtwoord</label>
         <input type="password" name="password" id="password" placeholder="Uw wachtwoord" required>
         <input type="submit" value="Log in" class="button-primary">
+        <h4>Geen account?</h4> <a href="http://localhost/register-form" class="button-primary">Regristreren</a
     </form>
 </main>
 
-<?php require "includes/footer.php" ?>
+
