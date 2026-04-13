@@ -9,21 +9,15 @@
             <h3>Over ons</h3>
             <ul>
                 <li><a href="/over-ons">Het team</a></li>
-                <li><a href="#">Onze visie</a></li>
-                <li><a href="#">Vacatures</a></li>
             </ul>
         </div>
         <div class="links">
-            <h3>Community</h3>
+            
             <ul>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Podcast</a></li>
-                <li><a href="#">Invite a friend</a></li>
             </ul>
         </div>
         <div class="links">
-            <h3>Socials</h3>
+            
         </div>
     </div>
 </footer>
