@@ -37,7 +37,7 @@ try {
             <div class="advertorial">
                 <h2>Sport auto met het beste design en snelheid</h2>
                 <p>Veiligheid en comfort terwijl je rijd in een futiristische en elante auto </p>
-                <img src="assets/images/car-rent-header-image-1.png" alt="">
+                <img src="assets/images/products/<?= $car['Afbeeldingen']; ?>" alt="auto">
                 <img src="assets/images/header-circle-background.svg" alt="" class="background-header-element">
             </div>
         </div>
