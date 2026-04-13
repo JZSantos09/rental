@@ -9,8 +9,8 @@ $categorie = $_GET['categorie'] ?? '';
 
 // query met filter
 if ($categorie) {
-    $stmt = $pdo->prepare("SELECT * FROM cars WHERE type = :type");
-    $stmt->execute(['type' => $categorie]);
+    $stmt = $pdo->prepare("SELECT * FROM cars WHERE type_car = :type_car");
+    $stmt->execute(['type_car' => $categorie]);
 } else {
     $stmt = $pdo->query("SELECT * FROM cars");
 }
@@ -27,7 +27,6 @@ $autos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <option value="">Alle</option>
             <option value="Sport" <?= $categorie == 'Sport' ? 'selected' : '' ?>>Sport</option>
             <option value="SUV" <?= $categorie == 'SUV' ? 'selected' : '' ?>>SUV</option>
-            <option value="Sedan" <?= $categorie == 'Sedan' ? 'selected' : '' ?>>Sedan</option>
         </select>
         <button type="submit">Filter</button>
     </form>
