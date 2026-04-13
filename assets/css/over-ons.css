@@ -1,0 +1,22 @@
+.container{
+    margin: auto;
+    background-color: white;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 20px;
+    margin: 40px;
+}
+
+.img{
+    margin-left: 100px;
+    border-radius: 20px;
+    width: 400px;
+    max-height: 267px;
+    padding: 10px;
+}
+
+.img_rydr{
+    border-radius: 20px;
+    margin: auto;
+    margin-left: 90px;
+}

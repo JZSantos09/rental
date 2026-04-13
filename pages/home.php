@@ -46,7 +46,7 @@ try {
             <img src="assets/images/products/car (<?= $car['id'] ?>).svg" alt="">
 
             <div class="car-specification">
-                <span> <?= $car['tank_volume'] ?>L</span>
+                <span> <?= $car['tank_volume'] ?>L</span> <div> </div> 
                 <span> <?= $car['steering'] ?></span>
                 <span> <?= $car['color'] ?></span>
                 <span> <?= $car['people_capacity'] ?> Personen</span>

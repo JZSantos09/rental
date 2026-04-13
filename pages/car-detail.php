@@ -47,21 +47,25 @@ try {
                 <span class="stars stars-4"></span>
                 <span>440+ reviewers</span>
             </div>
-            <p>NISMO is het toonbeeld geworden van Nissan's uitzonderlijke prestaties, geïnspireerd door het meest meedogenloze testterrein: het circuit.</p>
+          <p><?= htmlspecialchars($car['Beschrijving']); ?></p>
             <div class="car-type">
                 <div class="grid">
-                    <div class="row"><span class="font-weight-bold"><?= $car['color']?></span><span></span></div>
-                <div class="row"><span class="font-weight-bold"><?= $car['type_car']?></span><span></span></div>
-                    <div class="row"><span class="font-weight-bold"><span> <?= $car['people_capacity'] ?> Personen</span></div>
+                    <div class="row"><span class="accent-color">Type Car</span><span><?= htmlspecialchars($car['type_car']); ?></span></div>
+                    <div class="row"><span class="accent-color">Capacity</span><span><?= htmlspecialchars($car['people_capacity']); ?></span></div>
                 </div>
                 <div class="grid">
-                    <div class="row"><span class="font-weight-bold"><?= $car['steering']?></span><span></span></div>
-                    <div class="row"><span class="font-weight-bold"><?= $car['tank_volume']?> Liter</span><span></span></div>
+                    <div class="row"><span class="accent-color">Gasoline</span><span><?= htmlspecialchars($car['tank_volume']); ?></span></div>
+                    <div class="row"><span class="accent-color">Bouw jaar</span><span><?= htmlspecialchars($car['build_year']); ?></span></div>
+                </div>
+                <div class="grid">
+                    <div class="row"><span class="accent-color">Schakel</span><span><?= htmlspecialchars($car['steering']); ?></span></div>
+                    <div class="row"><span class="accent-color">Cylinder</span><span><?= htmlspecialchars($car['cylinder']); ?></span></div>
                 </div>
                 <div class="call-to-action">
-                    <div class="row"><span class="font-weight-bold"><strong>€<?= $car['price'] ?></strong> / dag</span>
-                    <div class="row"><a href="http://localhost/login-form" class="button-primary">Huur nu</a></div>
+                    <div class="row"><span class="font-weight-bold">€ <?= htmlspecialchars($car['price']); ?></span>/ dag</div>
+                    <div class="row"><a href="" class="button-primary">Huur nu</a></div>
                 </div>
+ 
 
             </div>
         </div>
