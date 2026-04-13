@@ -2,7 +2,7 @@
 <?php require_once "database/connection.php" ?>
 <main>
     <form action="/login-handler" class="account-form" method="post">
-        <h2>Log in</h2n
+        <h2>Log in</h2>
         <?php if (isset($_SESSION['success'])) { ?>
             <div class="succes-message"><?= $_SESSION['success'] ?></div>
         <?php } ?>

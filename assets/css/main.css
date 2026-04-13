@@ -428,6 +428,8 @@ footer .footer-links .links ul a {
   background-color: white;
   padding: 24px;
   gap: 24px;
+  max-width: 300px;
+  margin-bottom: 10px;
 }
 .cars .car-details h3 {
   margin: 0;
@@ -437,6 +439,7 @@ footer .footer-links .links ul a {
 }
 .cars img {
   max-height: 87px;
+  max-width: 300px;
 }
 .cars .car-specification {
   display: flex;
