@@ -1,58 +1,35 @@
 <?php require "includes/header.php" ?>
 
 <?php
-//TODO: Implementeer dat de pagina de juiste auto laat zien op basis van de query paramater 'name'
-//$name = $_GET['name'] ?? null;
-
-//if ($name) {
-//    echo "Toon details van auto met naam: " . htmlspecialchars($name);
-//} else {
-//    echo "Geen auto opgegeven.";
-//}
 require_once "database/connection.php";
-$id = $_GET["id"];
 
-// $username = "root";
-// $password = "";
+$id = $_GET["id"] ?? null;
+
+if (!$id) {
+    echo "Geen auto geselecteerd.";
+    exit;
+}
 
 try {
-    // $conn = new PDO("mysql:host=localhost;dbname=rydr", $username, $password);
-    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    $sql = "SELECT id, price, tank_volume, brand, build_year, color, mileage, steering, people_capacity, type_car, cylinder FROM cars WHERE id = :idph";
+    $sql = "SELECT * FROM cars WHERE id = :idph";
 
     $query = $conn->prepare($sql);
     $query->execute([
         "idph" => $id
     ]);
-    $result = $query->fetchAll();
-    $car = $result[0];
 
-    // foreach($result as $row){
-    //     echo "id: " . $row["id"] .
-    //              " - price: " . $row["price"] .
-    //              " - tank_volume: " . $row["tank_volume"] .
-    //              " - brand: " . $row["brand"] .
-    //              " - build_year: " . $row["build_year"] .
-    //              " - color: " . $row["color"] .
-    //              " - mileage: " . $row["mileage"] .
-    //              " - steering: " . $row["steering"] .
-    //              " - people_capacity: " . $row["people_capacity"] .
-    //              " - type_car: " . $row["type_car"] .
-    //              " - cylinder: " . $row["cylinder"] .
-                 
-                 
-                 
-    //              "<br>";
-    //     }
-    
+    $car = $query->fetch(PDO::FETCH_ASSOC);
 
+    if (!$car) {
+        echo "Auto niet gevonden.";
+        exit;
+    }
     $conn = null;
 
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-
+    $conn = null;
 ?>
 <main class="car-detail">
     <div class="grid">
@@ -73,16 +50,17 @@ try {
             <p>NISMO is het toonbeeld geworden van Nissan's uitzonderlijke prestaties, geïnspireerd door het meest meedogenloze testterrein: het circuit.</p>
             <div class="car-type">
                 <div class="grid">
-                    <div class="row"><span class="accent-color">Type Car</span><span>Sport</span></div>
-                    <div class="row"><span class="accent-color">Capacity</span><span>2 person</span></div>
+                    <div class="row"><span class="font-weight-bold"><?= $car['color']?></span><span></span></div>
+                <div class="row"><span class="font-weight-bold"><?= $car['type_car']?></span><span></span></div>
+                    <div class="row"><span class="font-weight-bold"><span> <?= $car['people_capacity'] ?> Personen</span></div>
                 </div>
                 <div class="grid">
-                    <div class="row"><span class="accent-color">Steering</span><span>Manual</span></div>
-                    <div class="row"><span class="accent-color">Gasoline</span><span>70L</span></div>
+                    <div class="row"><span class="font-weight-bold"><?= $car['steering']?></span><span></span></div>
+                    <div class="row"><span class="font-weight-bold"><?= $car['tank_volume']?> Liter</span><span></span></div>
                 </div>
                 <div class="call-to-action">
-                    <div class="row"><span class="font-weight-bold">€80,00</span> / dag</div>
-                    <div class="row"><a href="" class="button-primary">Huur nu</a></div>
+                    <div class="row"><span class="font-weight-bold"><strong>€<?= $car['price'] ?></strong> / dag</span>
+                    <div class="row"><a href="http://localhost/login-form" class="button-primary">Huur nu</a></div>
                 </div>
 
             </div>
